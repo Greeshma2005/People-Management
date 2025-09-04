@@ -6,7 +6,7 @@ import { Router } from '@angular/router';
   templateUrl: './dashboard.component.html'
 })
 export class DashboardComponent {
-  constructor(private router: Router) {}
+  constructor(public router: Router) {}
 
   goTo(page: string) {
     if (page === 'list') this.router.navigate(['/people']);

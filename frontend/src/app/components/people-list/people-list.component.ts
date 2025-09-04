@@ -10,7 +10,7 @@ import { PeopleService, Person } from '../../services/people.service';
 export class PeopleListComponent implements OnInit {
   people: Person[] = [];
 
-  constructor(private peopleService: PeopleService, private router: Router) {}
+  constructor(private peopleService: PeopleService, public router: Router) {}
 
   ngOnInit() {
     this.loadPeople();

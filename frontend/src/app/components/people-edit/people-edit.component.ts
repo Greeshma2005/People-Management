@@ -16,7 +16,7 @@ export class PeopleEditComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private router: Router,
+    public router: Router,
     private fb: FormBuilder,
     private peopleService: PeopleService
   ) {

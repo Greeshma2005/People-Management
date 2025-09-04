@@ -14,7 +14,7 @@ export interface Person {
   providedIn: 'root'
 })
 export class PeopleService {
-  private baseUrl = 'http://localhost:3000/person'; // your backend API
+  private baseUrl = 'https://people-management-z9nc.onrender.com/';
 
   constructor(private http: HttpClient) {}
 

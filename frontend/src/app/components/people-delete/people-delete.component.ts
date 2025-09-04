@@ -13,7 +13,7 @@ export class PeopleDeleteComponent implements OnInit {
 
   constructor(
     private peopleService: PeopleService,
-    private router: Router // <-- inject Router
+    public router: Router // <-- inject Router
   ) {}
 
   ngOnInit() {

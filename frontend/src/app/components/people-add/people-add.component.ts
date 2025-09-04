@@ -12,7 +12,7 @@ export class PeopleAddComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private router: Router,
+    public router: Router,
     private peopleService: PeopleService
   ) {
     this.personForm = this.fb.group({
