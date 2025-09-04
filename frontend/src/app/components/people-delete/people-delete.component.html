@@ -1,0 +1,45 @@
+<div class="container mt-4">
+  <!-- Header -->
+  <h2 class="text-center mb-4" style="color: #dc3545; font-weight: bold;">Delete People</h2>
+
+  <!-- Top Buttons -->
+  <div class="d-flex justify-content-between mb-3">
+    <!-- Back Button -->
+    <button class="btn btn-secondary" (click)="goBack()">
+      Back
+    </button>
+
+    <!-- Delete Button -->
+    <button class="btn btn-danger" (click)="deleteSelected()">
+      Delete
+    </button>
+  </div>
+
+  <!-- Table -->
+  <table class="table table-striped table-bordered table-hover">
+    <thead class="table-dark text-center">
+      <tr>
+        <th>Select</th>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Gender</th>
+        <th>Mobile</th>
+      </tr>
+    </thead>
+    <tbody class="text-center">
+      <tr *ngFor="let person of people">
+        <td>
+          <input
+            type="checkbox"
+            (change)="toggleSelection(person._id!, $event)"
+            [checked]="selectedIds.includes(person._id)"
+          />
+        </td>
+        <td>{{ person.name }}</td>
+        <td>{{ person.age }}</td>
+        <td>{{ person.gender }}</td>
+        <td>{{ person.mobile }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

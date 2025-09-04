@@ -1,0 +1,70 @@
+<div class="container mt-5">
+
+  <!-- Back Button -->
+  <div class="mb-3">
+    <button class="btn btn-outline-primary" (click)="goBack()">
+      <i class="bi bi-arrow-left me-2"></i> Back to Dashboard
+    </button>
+  </div>
+
+  <!-- Card-style container with hover effect -->
+  <div class="card shadow-sm rounded p-4" style="transition: transform 0.2s;" 
+       onmouseover="this.style.transform='scale(1.02)';" 
+       onmouseout="this.style.transform='scale(1)';">
+       
+    <!-- Attractive header with icon -->
+    <h2 class="text-center mb-4 fw-bold text-white py-3 rounded" 
+        style="background: linear-gradient(135deg, #4e54c8, #8f94fb); 
+               box-shadow: 0 4px 6px rgba(0,0,0,0.1); 
+               letter-spacing: 1px;">
+      <i class="bi bi-people-fill me-2"></i> List of People
+    </h2>
+
+    <!-- Responsive table with borders -->
+    <div class="table-responsive">
+      <table class="table table-bordered table-striped align-middle text-center">
+        <thead class="table-dark">
+          <tr>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Gender</th>
+            <th>Mobile</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let p of people">
+            <td class="align-middle">{{ p.name }}</td>
+            <td class="align-middle">{{ p.age }}</td>
+            <td class="align-middle">
+              <span 
+                class="badge rounded-pill d-inline-block text-white py-2" 
+                style="width: 80px;"
+                [ngClass]="{
+                  'bg-primary': p.gender === 'Male',
+                  'bg-danger': p.gender === 'Female',
+                  'bg-secondary': p.gender !== 'Male' && p.gender !== 'Female'
+                }">
+                {{ p.gender }}
+              </span>
+            </td>
+            <td class="align-middle">{{ p.mobile }}</td>
+            <td class="align-middle">
+              <button class="btn btn-primary btn-sm me-2" (click)="editPerson(p._id)">
+                Edit
+              </button>
+              <button class="btn btn-outline-danger btn-sm" (click)="deletePerson(p._id)">
+                Delete
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Empty state -->
+    <div *ngIf="people.length === 0" class="alert alert-info text-center mt-3">
+      No people found.
+    </div>
+  </div>
+</div>

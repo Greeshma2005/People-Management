@@ -1,0 +1,75 @@
+<div class="container-fluid min-vh-100 d-flex flex-column justify-content-center align-items-center bg-light py-5">
+
+  <!-- Dashboard Header -->
+  <div class="text-center mb-5">
+    <h1 class="display-4 fw-bold text-primary">People Management Dashboard</h1>
+    <p class="lead text-secondary">Manage your people efficiently with easy actions below</p>
+    <hr class="w-25 mx-auto border-3 border-primary">
+  </div>
+
+  <!-- Cards Section -->
+  <div class="row w-100 gx-4 gy-4 justify-content-center">
+
+    <!-- View People Card -->
+    <div class="col-lg-4 col-md-6">
+      <div class="card text-center p-5 h-100 shadow-lg border-0" 
+           style="transition: transform 0.3s, box-shadow 0.3s;"
+           onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 1rem 2rem rgba(0,0,0,0.3)';"
+           onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 0.5rem 1rem rgba(0,0,0,0.15)';">
+        <div class="card-body d-flex flex-column justify-content-center align-items-center">
+          <i class="bi bi-people fs-1 text-primary mb-4"></i>
+          <h3 class="card-title mb-3">View People</h3>
+          <p class="card-text text-muted">See the complete list of people in your system.</p>
+          <button class="btn btn-primary mt-3 w-75" (click)="goTo('list')">Go to List</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Add Person Card -->
+    <div class="col-lg-4 col-md-6">
+    <div class="card shadow-lg text-center p-5 h-100"
+        style="transition: transform 0.3s, box-shadow 0.3s;"
+        onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 1rem 2rem rgba(0,0,0,0.3)';"
+        onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 0.5rem 1rem rgba(0,0,0,0.15)';">
+        <div class="card-body d-flex flex-column justify-content-center align-items-center">
+        <i class="bi bi-person-plus fs-1 text-success mb-4"></i>
+        <h3 class="card-title mb-3">Add Person</h3>
+        <p class="card-text text-muted">Create a new person in the system.</p>
+        <button class="btn btn-success mt-3 w-75" (click)="goTo('add')">Add Person</button>
+        </div>
+    </div>
+    </div>
+
+
+    <!-- Edit Person Card -->
+    <div class="col-lg-4 col-md-6">
+      <div class="card text-center p-5 h-100 shadow-lg border-0" 
+           style="transition: transform 0.3s, box-shadow 0.3s;"
+           onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 1rem 2rem rgba(0,0,0,0.3)';"
+           onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 0.5rem 1rem rgba(0,0,0,0.15)';">
+        <div class="card-body d-flex flex-column justify-content-center align-items-center">
+          <i class="bi bi-pencil-square fs-1 text-warning mb-4"></i>
+          <h3 class="card-title mb-3">Edit Person</h3>
+          <p class="card-text text-muted">Edit details of a person quickly and efficiently.</p>
+          <button class="btn btn-warning text-white mt-3 w-75" (click)="goTo('edit')">Edit Person</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Delete People Card -->
+    <div class="col-lg-4 col-md-6">
+      <div class="card text-center p-5 h-100 shadow-lg border-0" 
+           style="transition: transform 0.3s, box-shadow 0.3s;"
+           onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 1rem 2rem rgba(0,0,0,0.3)';"
+           onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 0.5rem 1rem rgba(0,0,0,0.15)';">
+        <div class="card-body d-flex flex-column justify-content-center align-items-center">
+          <i class="bi bi-trash fs-1 text-danger mb-4"></i>
+          <h3 class="card-title mb-3">Delete People</h3>
+          <p class="card-text text-muted">Remove people's records from the system safely.</p>
+          <button class="btn btn-danger mt-3 w-75" (click)="goTo('delete')">Delete Person</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

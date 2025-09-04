@@ -1,0 +1,96 @@
+<div class="container mt-4">
+
+  <!-- Back Button at top-left -->
+  <div class="mb-3">
+    <button class="btn btn-outline-primary" (click)="router.navigate(['/'])">
+      <i class="bi bi-arrow-left me-2"></i> Back to Dashboard
+    </button>
+  </div>
+
+  <ng-container *ngIf="personId; else selectPersonList">
+    <!-- Edit Form for a specific person -->
+    <div class="card shadow-sm rounded p-4 mx-auto" style="max-width: 600px;">
+      <h2 class="text-center mb-4 fw-bold text-primary" style="letter-spacing: 1px;">
+        <i class="bi bi-pencil-square me-2"></i> Edit Person Details
+      </h2>
+
+      <form [formGroup]="personForm" (ngSubmit)="onSubmit()">
+        <div class="mb-3">
+          <label for="name" class="form-label">Name</label>
+          <input id="name" type="text" class="form-control" formControlName="name" placeholder="Enter name">
+        </div>
+
+        <div class="mb-3">
+          <label for="age" class="form-label">Age</label>
+          <input id="age" type="number" class="form-control" formControlName="age" placeholder="Enter age">
+        </div>
+
+        <div class="mb-3">
+          <label for="gender" class="form-label">Gender</label>
+          <select id="gender" class="form-select" formControlName="gender">
+            <option value="" disabled>Select gender</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label for="mobile" class="form-label">Mobile</label>
+          <input id="mobile" type="number" class="form-control" formControlName="mobile" placeholder="Enter mobile number">
+        </div>
+
+        <div class="d-flex justify-content-between mt-4">
+          <button type="button" class="btn btn-secondary" (click)="router.navigate(['/people'])">
+            Cancel
+          </button>
+          <button type="submit" class="btn btn-primary">Update Person</button>
+        </div>
+      </form>
+    </div>
+  </ng-container>
+
+  <ng-template #selectPersonList>
+    <!-- List of people when accessed from dashboard -->
+    <h2 class="text-center mb-4 fw-bold text-success" style="letter-spacing: 1px;">
+      Please Select a Person to Edit
+    </h2>
+
+    <div class="table-responsive shadow-sm rounded">
+      <table class="table table-striped table-bordered table-hover text-center align-middle">
+        <thead class="table-dark">
+          <tr>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Gender</th>
+            <th>Mobile</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let p of people">
+            <td>{{ p.name }}</td>
+            <td>{{ p.age }}</td>
+            <td>
+              <span class="badge text-white py-2 px-3 rounded-pill"
+                    style="min-width: 70px; display: inline-block;"
+                    [ngClass]="{
+                      'bg-primary': p.gender === 'Male',
+                      'bg-danger': p.gender === 'Female',
+                      'bg-secondary': p.gender !== 'Male' && p.gender !== 'Female'
+                    }">
+                {{ p.gender }}
+              </span>
+            </td>
+            <td>{{ p.mobile }}</td>
+            <td>
+              <button class="btn btn-warning btn-sm px-3 py-1" style="min-width: 90px;" (click)="editPerson(p._id)">
+                Edit
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </ng-template>
+</div>

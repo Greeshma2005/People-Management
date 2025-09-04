@@ -1,0 +1,71 @@
+<div class="container mt-5">
+  <div class="card shadow-sm rounded p-4 mx-auto" style="max-width: 600px;">
+    
+    <!-- Header with Back Button -->
+    <div class="d-flex justify-content-between align-items-center mb-4">
+      <h2 class="text-primary fw-bold">
+        <i class="bi bi-person-plus me-2"></i> Add Person
+      </h2>
+    </div>
+
+    <!-- Form -->
+    <form [formGroup]="personForm" (ngSubmit)="onSubmit()">
+      <div class="mb-3">
+        <label for="name" class="form-label">Name</label>
+        <input 
+          id="name"
+          type="text" 
+          class="form-control" 
+          formControlName="name" 
+          placeholder="Enter name">
+      </div>
+
+      <div class="mb-3">
+        <label for="age" class="form-label">Age</label>
+        <input 
+          id="age"
+          type="number" 
+          class="form-control" 
+          formControlName="age" 
+          placeholder="Enter age">
+      </div>
+
+      <div class="mb-3">
+        <label for="gender" class="form-label">Gender</label>
+        <select 
+          id="gender" 
+          class="form-select" 
+          formControlName="gender">
+          <option value="" disabled selected>Select gender</option>
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
+          <option value="Other">Other</option>
+        </select>
+      </div>
+
+      <div class="mb-3">
+        <label for="mobile" class="form-label">Mobile</label>
+        <input 
+          id="mobile"
+          type="text" 
+          class="form-control" 
+          formControlName="mobile" 
+          placeholder="Enter 10-digit mobile">
+      </div>
+
+      <!-- Buttons -->
+      <div class="d-flex justify-content-between mt-4">
+        <button 
+          type="button" 
+          class="btn btn-secondary" 
+          (click)="router.navigate(['/dashboard'])">
+          Back
+        </button>
+        <button type="submit" class="btn btn-success">
+          Add Person
+        </button>
+      </div>
+    </form>
+
+  </div>
+</div>
