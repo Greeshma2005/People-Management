@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  apiUrl:'https://people-management-z9nc.onrender.com/person'
 };

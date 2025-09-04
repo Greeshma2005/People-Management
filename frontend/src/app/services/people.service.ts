@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { environment } from '../environments/environment';
 
 export interface Person {
   _id?: string;
@@ -14,7 +15,7 @@ export interface Person {
   providedIn: 'root'
 })
 export class PeopleService {
-  private baseUrl = 'https://people-management-z9nc.onrender.com/';
+  private baseUrl = environment.apiUrl;
 
   constructor(private http: HttpClient) {}
 
